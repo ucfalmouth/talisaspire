@@ -65,7 +65,7 @@ class resource_reading extends resource_base {
 			
 			
 			$doc = DOMDocument::loadHTMLFile($readinglist_url); 
-			$toc = $doc->getElementById("list-toc");
+			$toc = $doc->getElementById("toc");
 			$links = $toc->getElementsByTagName("a");
 			$list = "<ul id='reading_items'>";
 			foreach ($links as $link) {
