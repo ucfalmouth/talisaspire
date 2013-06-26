@@ -38,27 +38,27 @@ class resource_reading extends resource_base {
 			return false; // fallback for manual courses with no occ code
 		}
 		else {
-			$url = "http://liblists.sussex.ac.uk/modules/".$course_code."/lists.json";
+			$url = "http://resourcelists.falmouth.ac.uk/modules/".$course_code."/lists.json";
 			$json = file_get_contents($url);
 			$json = json_decode($json);
 			foreach ($json as $listurl => $data) {
 			# we only want lists. not courses or departments
 				if (preg_match("/\/lists\//", $listurl)) {
 					$sitetype = 'modules';
-					$readinglist_url = "http://liblists.sussex.ac.uk/$sitetype/$course_code/lists.html";
+					$readinglist_url = "http://resourcelists.falmouth.ac.uk/$sitetype/$course_code/lists.html";
 				
 				}
 				
 			}
 			
-			$url = "http://liblists.sussex.ac.uk/courses/".$course_code."/lists.json";
+			$url = "http://resourcelists.falmouth.ac.uk/courses/".$course_code."/lists.json";
 			$json = file_get_contents($url);
 			$json = json_decode($json);	
 			foreach ($json as $listurl => $data) {
 			# we only want lists. not courses or departments
 				if (preg_match("/\/lists\//", $listurl)) {
 					$sitetype = 'courses';
-					$readinglist_url = "http://liblists.sussex.ac.uk/$sitetype/$course_code/lists.html";
+					$readinglist_url = "http://resourcelists.falmouth.ac.uk/$sitetype/$course_code/lists.html";
 					}
 			}
 			//echo $readinglist_url."<br />";
