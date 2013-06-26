@@ -64,9 +64,7 @@ class resource_reading extends resource_base {
 			//echo $readinglist_url."<br />";
 			
 			
-			//$readinglist_url = "http://liblists.sussex.ac.uk/courses/p4065/lists.html"; // creative photography
-			$doc = DOMDocument::loadHTMLFile($readinglist_url);
-			// $doc->validate();
+			$doc = DOMDocument::loadHTMLFile($readinglist_url); 
 			$toc = $doc->getElementById("list-toc");
 			$links = $toc->getElementsByTagName("a");
 			$list = "<ul id='reading_items'>";
